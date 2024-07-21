@@ -73,6 +73,7 @@ public class AuthorizationServerConfig {
 
 		OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
 
+		//Configuração do autenticação do Authorization Server
 		// @formatter:off
 		http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
 			.tokenEndpoint(tokenEndpoint -> tokenEndpoint
@@ -168,6 +169,7 @@ public class AuthorizationServerConfig {
 		return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource);
 	}
 
+	//Faz a configuração do algoritmo do RSA, que vai gerar a chave para embaralhar junto com o token
 	@Bean
 	public JWKSource<SecurityContext> jwkSource() {
 		RSAKey rsaKey = generateRsa();

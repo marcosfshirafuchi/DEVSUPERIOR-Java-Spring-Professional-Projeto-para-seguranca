@@ -30,6 +30,7 @@ public class ResourceServerConfig {
 	@Value("${cors.origins}")
 	private String corsOrigins;
 
+	//Libera o acesso ap banco de dados H2 Console
 	@Bean
 	@Profile("test")
 	@Order(1)
@@ -62,6 +63,7 @@ public class ResourceServerConfig {
 		return jwtAuthenticationConverter;
 	}
 
+	//CorsOrigins
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 
